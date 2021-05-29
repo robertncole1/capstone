@@ -3,8 +3,6 @@
 ### Project Name
 "Sound Selection"
 ### Overview
-This project is the culmination of the front-end semester at Nashville Software School. It demonstrates timely command of React.js + CRUD functionality.
-
 This app will not only give you the ability to seee your entire music collection in one place, but to see the exact version you have. This app will have the ability to read, add, edit, and delete items in your collection. A stretch goal will be to tie in the marketplace information to see what each individual record is worth. It will also be able to search by specific barcode of the vinyl record you have, allowing for version accuracy when adding to your collection.
 ### Personal Motivation
 For me, this project is personal. My dad passed away in 2014. I grew up with him playing music in the house on his old vinyl records. Everything from the Beatles to Madonna to Michael Jackson. He liked all music, as long as it was played loud and especially on his old record player. He would spend hours figuring out if his version of the White Album by the Beatles was the version that was worth thousands of dollars. (Spoiler: It wasn't). Now instead of googling every single record, searching through sites to find the correct barcode and label, I want to use an API to find your specific record and create your own collection. This way, you can keep your music in one digital place for the physical records of your life. 
