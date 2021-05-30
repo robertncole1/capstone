@@ -15,60 +15,88 @@ https://dbdiagram.io/d/60b25eaab29a09603d1719ce
 
 ### Sample Postman Data
 
-GET https://api.discogs.com/database/search?q=The_Beatles&format=vinyl&token={key}
+GET https://api.discogs.com/database/search?q=The_Beatles&format=vinyl&type=release&token={key}
 ```{
   "pagination": {
     "page": 1,
     "pages": 200,
     "per_page": 50,
-    "items": 21114,
+    "items": 19863,
     "urls": {
-      "last": "https://api.discogs.com/database/search?q=The_Beatles&format=vinyl&token={key}&page=200&per_page=50",
-      "next": "https://api.discogs.com/database/search?q=The_Beatles&format=vinyl&token={key}&page=2&per_page=50"
+      "last": "https://api.discogs.com/database/search?q=The_Beatles&format=vinyl&type=release&token={key}&page=200&per_page=50",
+      "next": "https://api.discogs.com/database/search?q=The_Beatles&format=vinyl&type=release&token={key}"
     }
   },
   "results": [
     {
-      "country": "UK",
+      "country": "US",
       "year": "1968",
       "format": [
         "Vinyl",
         "LP",
         "Album",
-        "Misprint",
         "Numbered",
-        "Mono"
+        "Repress",
+        "Stereo"
       ],
       "label": [
         "Apple Records",
-        "Garrod & Lofthouse International Ltd.",
-        "The Gramophone Co. Ltd.",
-        "EMI Records",
+        "Apple Records",
+        "Capitol Records, Inc.",
+        "Capitol Industries, Inc.",
         "Northern Songs Ltd.",
-        "Apple Records"
+        "Apple Records",
+        "EMI Records",
+        "The Gramophone Co. Ltd.",
+        "Capitol Records Pressing Plant, Jacksonville"
       ],
-      "type": "master",
+      "type": "release",
       "genre": [
-        "Rock"
+        "Rock",
+        "Pop"
       ],
       "style": [
-        "Pop Rock",
-        "Experimental"
+        "Psychedelic Rock",
+        "Pop Rock"
       ],
-      "id": 46402,
+      "id": 1436445,
       "barcode": [
-        "XEX 709-1",
-        "XEX 710-1",
-        "XEX 711-1",
-        "XEX 712-1",
-        "XEX 709-1",
-        "XEX 710-2",
-        "XEX 711-1",
-        "XEX 712-1",
-        "XEX 709-1",
-        "XEX 710-1",
-        "XEX 711-1",
-        "XEX 712-2"
+        "BMI",
+        "ASCAP",
+        "SWBO1-101",
+        "SWBO2-101",
+        "SWBO3-101",
+        "SWBO4-101",
+        "SWBO1-101-J58",
+        "SWBO2-101-J46",
+        "SWBO3-101-J47",
+        "SWBO4-101-J44",
+        "SWBO-X1-101-J45 #2 O",
+        "SWBO-X2-101-J43 #2 O",
+        "SWBO-X3-101-J52 #2 O",
+        "SWBO-X4-101-J48 #2 O",
+        "SWBO-1-101-J59 #1 O",
+        "SWBO-X2-101-J44 #2 O",
+        "SWBO-X3-101-J58 #2 O",
+        "SWBO-X4-101- J43 #1 O",
+        "SWBO-X1-101 J55 #2 O",
+        "SWBO-X2-101-J43 #2 O",
+        "SWBO-X3-101-J52 #1 2 O",
+        "SWBO-X4-101-J49 #2 O",
+        "SWBO-X1-101 J54 #2 O",
+        "SWBO-X2-101-J43 #3 O",
+        "SWBO-X3-101-J52 #2 2 O",
+        "SWBO-X4-101-J48 #2 O",
+        "SWBO-X2-101-J455 #3 2 O",
+        "SWBO-X2-101-J43  2 #3 O",
+        "SWBO-X3-101-J45 #1",
+        "SWBO-X3-101-J44 #1",
+        "SWBO-X3-101-J52 #1",
+        "SWBO-X3-101-J43 #1",
+        "SWBO-X1-101J44#1 O",
+        "SWBO-X2-101-J43#2 O",
+        "SWBO-3-101-B35: 2",
+        "SWBO-X4-101 J42#1 O"
       ],
       "user_data": {
         "in_wantlist": false,
@@ -76,30 +104,46 @@ GET https://api.discogs.com/database/search?q=The_Beatles&format=vinyl&token={ke
       },
       "master_id": 46402,
       "master_url": "https://api.discogs.com/masters/46402",
-      "uri": "/The-Beatles-The-Beatles/master/46402",
-      "catno": "PMC 7067/8",
+      "uri": "/The-Beatles-The-Beatles/release/1436445",
+      "catno": "SWBO 101",
       "title": "The Beatles - The Beatles",
-      "thumb": "https://img.discogs.com/imSLZLPxL--Jt6wO8oR5BwFQmgw=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-456663-1361306314-9486.jpeg.jpg",
-      "cover_image": "https://img.discogs.com/buemDQeLTIhhS_2YWo5jHOItUtg=/fit-in/600x597/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-456663-1361306314-9486.jpeg.jpg",
-      "resource_url": "https://api.discogs.com/masters/46402",
+      "thumb": "https://img.discogs.com/sE5TsYRssWmZcQx-DFEnGq7OOL0=/fit-in/150x150/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-1436445-1233697817.jpeg.jpg",
+      "cover_image": "https://img.discogs.com/1FJJNUI5oLEIZxHfxi0ZAwwfFDU=/fit-in/465x464/filters:strip_icc():format(jpeg):mode_rgb():quality(90)/discogs-images/R-1436445-1233697817.jpeg.jpg",
+      "resource_url": "https://api.discogs.com/releases/1436445",
       "community": {
-        "want": 255440,
-        "have": 191025
-      }
+        "want": 2109,
+        "have": 12464
+      },
+      "format_quantity": 2,
+      "formats": [
+        {
+          "name": "Vinyl",
+          "qty": "2",
+          "text": "Jacksonville Pressing, Capitol text",
+          "descriptions": [
+            "LP",
+            "Album",
+            "Numbered",
+            "Repress",
+            "Stereo"
+          ]
+        }
+      ]
     },
-}
 
 ```
-GET https://api.discogs.com/releases/46402
+GET https://api.discogs.com/releases/1436445
 ```
 { ...
   "format_quantity": 2,
-  "date_added": "2002-08-25T22:40:45-07:00",
-  "date_changed": "2018-07-28T12:59:40-07:00",
-  "num_for_sale": 11,
-  "lowest_price": 12.18,
-  "title": "Raver's Night '96",
-  "country": "Netherlands",
-  "released": "1996",
+  "date_added": "2008-08-24T08:01:50-07:00",
+  "date_changed": "2020-03-25T14:38:03-07:00",
+  "num_for_sale": 42,
+  "lowest_price": 7.95,
+  "master_id": 46402,
+  "master_url": "https://api.discogs.com/masters/46402",
+  "title": "The Beatles",
+  "country": "US",
+  "released": "1968",
   ...
 }
