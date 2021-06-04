@@ -9,6 +9,13 @@ For me, this project is personal. My dad passed away in 2014. I grew up with him
 ### ERD
 https://dbdiagram.io/d/60b25eaab29a09603d1719ce
 ### Wireframe
+https://xd.adobe.com/view/a4efdeef-822a-49d6-be24-97b1d486e434-f1bc/?hints=off
+
+![Capstone-Homepage](https://user-images.githubusercontent.com/76854545/120740354-0ebe0b00-c4c1-11eb-85b9-4f3b0e9f9315.png)
+
+![Capstone-Collection](https://user-images.githubusercontent.com/76854545/120740375-17164600-c4c1-11eb-8a3f-3d9297318c1e.png)
+
+![Capstone-Search](https://user-images.githubusercontent.com/76854545/120740391-1978a000-c4c1-11eb-8f19-e07301b31af2.png)
 
 ### Screenshots
 ### Loom Video Walk-through
