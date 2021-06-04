@@ -17,7 +17,24 @@ https://xd.adobe.com/view/a4efdeef-822a-49d6-be24-97b1d486e434-f1bc/?hints=off
 
 ![Capstone-Search](https://user-images.githubusercontent.com/76854545/120740391-1978a000-c4c1-11eb-8f19-e07301b31af2.png)
 
+### Features & User Stories
+- Google authentication
+- See a list of public albums on everyone's collection.
+- Search for a specific album, artist, release, master, barcode, etc.
+- When a user searches, they have the ability to sort by the type of item (release, master, artist, or label)
+- Add that specific item to their collection and also create notes to go along with it
+- Delete items from their collection
+- Edit the notes attached to each item
+- Create an item of gear that they own
+- Edit the gear item
+- Delete their gear item
+- View for all your artists in your collection
+- Delete an artist in your collect
+- Edit artist notes
+- Search for new artist exclusively
+
 ### Screenshots
+
 ### Loom Video Walk-through
 
 ### Sample Postman Data
