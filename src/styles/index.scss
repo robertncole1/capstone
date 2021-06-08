@@ -1,6 +1,17 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import 'variables';
 
-body {
-  background-color: $favColor;
+.card {
+  width: 300px;
+  margin-bottom: 40px;
+}
+
+.my-search {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap;
+}
+
+h2 {
+  text-align: center;
 }
