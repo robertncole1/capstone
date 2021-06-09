@@ -6,6 +6,10 @@ import {
   CardTitle, CardBody
 } from 'reactstrap';
 import PropTypes from 'prop-types';
+import ModalExample from './Modal';
+import {
+  deleteArtist, deleteLabel, deleteMaster, deleteRelease
+} from '../helpers/data/axios';
 
 const CollectionCard = ({
   firebaseKey,
@@ -15,8 +19,14 @@ const CollectionCard = ({
   cover_image,
   barcode,
   year,
-  format,
   user,
+  uid,
+  format,
+  setResults,
+  setMasters,
+  setReleases,
+  setLabels,
+  setArtists,
   id,
   notes
 }) => {
@@ -27,25 +37,40 @@ const CollectionCard = ({
   const handleProjectsButton = (type) => {
     switch (type) {
       case 'edit':
-        console.warn(user.uid);
         setEditing((prevState) => !prevState);
         break;
       case 'view':
         history.push(`/releases/${firebaseKey}`);
+        break;
+      case 'delete-label':
+        deleteLabel(firebaseKey, user)
+          .then(setLabels);
+        break;
+      case 'delete-artist':
+        deleteArtist(firebaseKey, user)
+          .then(setArtists);
+        break;
+      case 'delete-master':
+        deleteMaster(firebaseKey, user)
+          .then(setMasters);
+        break;
+      case 'delete-release':
+        deleteRelease(firebaseKey, user)
+          .then(setReleases);
         break;
       default:
         console.warn('No button clicked');
     }
   };
 
-  const editView = () => (
-    <>
-      <CardLink onClick={() => handleProjectsButton('edit')}>
-        {editing ? 'Close Form' : 'Edit Card'}
-      </CardLink>
-      <CardLink className="delete-link" onClick={() => handleProjectsButton('delete')}>Delete</CardLink>
-    </>
-  );
+  // const editView = () => (
+  //   <>
+  //     <CardLink onClick={() => handleProjectsButton('edit')}>
+  //       {editing ? 'Close Form' : 'Edit Card'}
+  //     </CardLink>
+  //     <CardLink className="delete-link" onClick={() => handleProjectsButton('delete')}>Delete</CardLink>
+  //   </>
+  // );
 
   return (
     <>
@@ -58,9 +83,21 @@ const CollectionCard = ({
             <CardBody>
             <CardText>Artist ID: {id}</CardText>
             <CardText>Notes: {notes}</CardText>
-            <CardLink className="delete-link" onClick={() => handleProjectsButton('edit')}>Add</CardLink>
-            <CardLink className="delete-link" onClick={() => handleProjectsButton('view')}>View</CardLink>
-            { editView() }
+            <CardLink className="delete-link" onClick={() => handleProjectsButton('edit')}>Edit</CardLink>
+            <CardLink className="delete-link" onClick={() => handleProjectsButton('delete-artist')}>Delete</CardLink>
+            {
+              editing && <ModalExample
+                title={title}
+                cover_image={cover_image}
+                firebaseKey={firebaseKey}
+                notes={notes}
+                user={user}
+                uid={uid}
+                type={type}
+                id={id}
+                setResults={setResults}
+              />
+            }
             </CardBody>
         </Card>
     }
@@ -77,9 +114,26 @@ const CollectionCard = ({
           <CardText>Barcodes: {barcode}</CardText>
           <CardText>Release ID: {id}</CardText>
           <CardText>Notes: {notes}</CardText>
-          <CardLink className="delete-link" onClick={() => handleProjectsButton('edit')}>Add</CardLink>
+          <CardLink className="delete-link" onClick={() => handleProjectsButton('edit')}>Edit</CardLink>
           <CardLink className="delete-link" onClick={() => handleProjectsButton('view')}>View</CardLink>
-          { editView() }
+          <CardLink className="delete-link" onClick={() => handleProjectsButton('delete-release')}>Delete</CardLink>
+          {
+              editing && <ModalExample
+              title={title}
+              cover_image={cover_image}
+              firebaseKey={firebaseKey}
+              notes={notes}
+              country={country}
+              year={year}
+              uid={uid}
+              user={user}
+              format={format}
+              barcode={barcode}
+              type={type}
+              id={id}
+              setResults={setResults}
+            />
+            }
         </CardBody>
       </Card>
     }
@@ -92,9 +146,23 @@ const CollectionCard = ({
         <CardBody>
         <CardText>Release ID: {id}</CardText>
         <CardText>Notes: {notes}</CardText>
-        <CardLink className="delete-link" onClick={() => handleProjectsButton('edit')}>Add</CardLink>
-        <CardLink className="delete-link" onClick={() => handleProjectsButton('view')}>View</CardLink>
-        { editView() }
+        <CardLink className="delete-link" onClick={() => handleProjectsButton('edit')}>Edit</CardLink>
+        <CardLink className="delete-link" onClick={() => handleProjectsButton('delete-label')}>Delete</CardLink>
+        {
+              editing && <ModalExample
+              title={title}
+              cover_image={cover_image}
+              firebaseKey={firebaseKey}
+              notes={notes}
+              uid={uid}
+              user={user}
+              country={country}
+              year={year}
+              type={type}
+              id={id}
+              setResults={setResults}
+              />
+            }
         </CardBody>
       </Card>
     }
@@ -109,9 +177,23 @@ const CollectionCard = ({
         <CardBody>
           <CardText>Master ID: {id}</CardText>
           <CardText>Notes: {notes}</CardText>
-          <CardLink className="delete-link" onClick={() => handleProjectsButton('edit')}>Add</CardLink>
-        <CardLink className="delete-link" onClick={() => handleProjectsButton('view')}>View</CardLink>
-        { editView() }
+          <CardLink className="delete-link" onClick={() => handleProjectsButton('edit')}>Edit</CardLink>
+        <CardLink className="delete-link" onClick={() => handleProjectsButton('delete-master')}>Delete</CardLink>
+        {
+              editing && <ModalExample
+              title={title}
+              cover_image={cover_image}
+              firebaseKey={firebaseKey}
+              notes={notes}
+              country={country}
+              year={year}
+              uid={uid}
+              user={user}
+              type={type}
+              id={id}
+              setResults={setResults}
+              />
+            }
         </CardBody>
       </Card>
     }
@@ -128,9 +210,15 @@ CollectionCard.propTypes = {
   type: PropTypes.string,
   id: PropTypes.number,
   user: PropTypes.any,
-  format: PropTypes.string,
+  uid: PropTypes.any,
+  format: PropTypes.array,
   year: PropTypes.string,
+  setResults: PropTypes.func,
   notes: PropTypes.string,
+  setArtists: PropTypes.func,
+  setLabels: PropTypes.func,
+  setReleases: PropTypes.func,
+  setMasters: PropTypes.func,
 };
 
 export default CollectionCard;

@@ -4,7 +4,7 @@ import {
   Button, Form, FormGroup, Label, Input
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { addAlbum } from '../data/axios';
+import { addAlbum, updateRelease } from '../data/axios';
 
 const AlbumsForm = ({
   title,
@@ -44,7 +44,7 @@ const AlbumsForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     if (result.firebaseKey) {
-      console.warn('shit');
+      updateRelease(result, user).then(setResults);
     } else {
       addAlbum(result, user).then((ReleasesArray) => setResults(ReleasesArray));
     }

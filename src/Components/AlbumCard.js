@@ -34,7 +34,6 @@ const AlbumCard = ({
   const handleProjectsButton = (type) => {
     switch (type) {
       case 'edit':
-        console.warn(user);
         setEditing((prevState) => !prevState);
         break;
       default:

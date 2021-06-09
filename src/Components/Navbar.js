@@ -16,11 +16,9 @@ const NavBar = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const authenticated = () => (
-    <>
       <NavItem>
-        <Link className="nav-link" id="that" to="/collection">Collection</Link>
+        <Link className="nav-link" id="that" to="/collection">My Collection</Link>
       </NavItem>
-  </>
   );
   return (
     <div>
@@ -29,11 +27,10 @@ const NavBar = ({ user }) => {
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="ml-auto" navbar>
-          <NavItem>
-            <Link className="nav-link" id="that" to="/search">Search</Link>
-         </NavItem>
+            <NavItem>
+              <Link className="nav-link" id="that" to="/search">Search</Link>
+            </NavItem>
           {user && authenticated()}
-          <NavItem>
               {
                 user !== null
                 && <NavItem>
@@ -44,7 +41,6 @@ const NavBar = ({ user }) => {
                   }
                 </NavItem>
               }
-            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>

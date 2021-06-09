@@ -7,8 +7,8 @@ const apiPriceUrl = 'https://api.discogs.com/releases';
 const consumerKey = process.env.REACT_APP_DISCOGS_CONKEY;
 const consumerSecret = process.env.REACT_APP_DISCOGS_SECKEY;
 
-const getAlbums = () => new Promise((resolve, reject) => {
-  axios.get(`${apiURL}/search?q=Taylor_Swift&key=${consumerKey}&secret=${consumerSecret}`)
+const getAlbums = (apiInput) => new Promise((resolve, reject) => {
+  axios.get(`${apiURL}/search?q=${apiInput}&key=${consumerKey}&secret=${consumerSecret}`)
     .then((response) => resolve(response.data.results))
     .catch((error) => reject(error));
 });
@@ -112,6 +112,73 @@ const getSingleAlbum = (firebaseKey) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const updateArtist = (artist, user) => new Promise((resolve, reject) => {
+  axios.patch(`${dbURL}/artists/${artist.firebaseKey}.json`, artist)
+    .then(() => getCollectionArtists(user).then(resolve))
+    .catch((error) => reject(error));
+});
+
+const updateRelease = (release, user) => new Promise((resolve, reject) => {
+  axios.patch(`${dbURL}/releases/${release.firebaseKey}.json`, release)
+    .then(() => getCollectionReleases(user).then(resolve))
+    .catch((error) => reject(error));
+});
+
+const updateLabel = (label, user) => new Promise((resolve, reject) => {
+  axios.patch(`${dbURL}/labels/${label.firebaseKey}.json`, label)
+    .then(() => getCollectionLabels(user).then(resolve))
+    .catch((error) => reject(error));
+});
+
+const updateMaster = (master, user) => new Promise((resolve, reject) => {
+  axios.patch(`${dbURL}/masters/${master.firebaseKey}.json`, master)
+    .then(() => getCollectionMasters(user).then(resolve))
+    .catch((error) => reject(error));
+});
+
+const deleteArtist = (firebaseKey, user) => new Promise((resolve, reject) => {
+  axios.delete(`${dbURL}/artists/${firebaseKey}.json`)
+    .then(() => getCollectionArtists(user).then(resolve))
+    .catch((error) => reject(error));
+});
+
+const deleteLabel = (firebaseKey, user) => new Promise((resolve, reject) => {
+  axios.delete(`${dbURL}/labels/${firebaseKey}.json`)
+    .then(() => getCollectionLabels(user).then(resolve))
+    .catch((error) => reject(error));
+});
+
+const deleteRelease = (firebaseKey, user) => new Promise((resolve, reject) => {
+  axios.delete(`${dbURL}/releases/${firebaseKey}.json`)
+    .then(() => getCollectionReleases(user).then(resolve))
+    .catch((error) => reject(error));
+});
+
+const deleteMaster = (firebaseKey, user) => new Promise((resolve, reject) => {
+  axios.delete(`${dbURL}/masters/${firebaseKey}.json`)
+    .then(() => getCollectionMasters(user).then(resolve))
+    .catch((error) => reject(error));
+});
+
 export {
-  getAlbums, addAlbum, getPrice, getSingleAlbum, getCollectionReleases, getCollectionArtists, getCollectionLabels, getCollectionMasters, getArtist, addArtist, AddLabel, AddMaster
+  getAlbums,
+  addAlbum,
+  getPrice,
+  getSingleAlbum,
+  updateRelease,
+  updateMaster,
+  updateLabel,
+  updateArtist,
+  getCollectionReleases,
+  getCollectionArtists,
+  getCollectionLabels,
+  getCollectionMasters,
+  getArtist,
+  addArtist,
+  AddLabel,
+  AddMaster,
+  deleteArtist,
+  deleteLabel,
+  deleteRelease,
+  deleteMaster
 };

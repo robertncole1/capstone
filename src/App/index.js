@@ -8,7 +8,7 @@ import './App.scss';
 import NavBar from '../Components/Navbar';
 
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
   const [results, setResults] = useState([]);
 
   useEffect(() => {
@@ -34,8 +34,8 @@ function App() {
       />
       <Routes
         user={user}
-        releases={results}
-        setReleases={setResults}
+        results={results}
+        setResults={setResults}
       />
     </div>
   );
