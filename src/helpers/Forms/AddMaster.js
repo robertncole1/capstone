@@ -4,7 +4,7 @@ import {
   Button, Form, FormGroup, Label, Input
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { AddMaster } from '../data/axios';
+import { AddMaster, updateMaster } from '../data/axios';
 
 const MasterForm = ({
   title,
@@ -36,9 +36,9 @@ const MasterForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     if (result.firebaseKey) {
-      console.warn('shit');
+      updateMaster(result, user).then(setResults);
     } else {
-      AddMaster(result).then((MastersArray) => setResults(MastersArray));
+      AddMaster(result, user).then((MastersArray) => setResults(MastersArray));
     }
   };
 

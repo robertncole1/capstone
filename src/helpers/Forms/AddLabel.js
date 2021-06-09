@@ -4,7 +4,7 @@ import {
   Button, Form, FormGroup, Label, Input
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { AddLabel } from '../data/axios';
+import { AddLabel, updateLabel } from '../data/axios';
 
 const LabelForm = ({
   title,
@@ -36,9 +36,9 @@ const LabelForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     if (result.firebaseKey) {
-      console.warn('shit');
+      updateLabel(result, user).then(setResults);
     } else {
-      AddLabel(result).then((LabelsArray) => setResults(LabelsArray));
+      AddLabel(result, user).then((LabelsArray) => setResults(LabelsArray));
     }
   };
 

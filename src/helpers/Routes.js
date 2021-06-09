@@ -5,12 +5,34 @@ import Collection from '../views/Collection';
 import SearchResults from '../views/SearchResults';
 import SingleView from '../views/SingleView';
 
-function Routes({ user }) {
+function Routes({
+  user,
+  releases,
+  artists,
+  labels,
+  masters,
+  setMasters,
+  setReleases,
+  setLabels,
+  setArtists,
+  results,
+  setResults
+}) {
   return (
     <div>
       <Switch>
         <Route exact path='/collection' component={() => <Collection
           user={user}
+          releases={releases}
+          artists={artists}
+          labels={labels}
+          masters={masters}
+          setMasters={setMasters}
+          setReleases={setReleases}
+          setLabels={setLabels}
+          setArtists={setArtists}
+          results={results}
+          setResults={setResults}
       />}
         />
         <Route exact path='/search' component={ () => <SearchResults
@@ -26,6 +48,16 @@ function Routes({ user }) {
 
 Routes.propTypes = {
   user: PropTypes.any,
+  releases: PropTypes.array,
+  masters: PropTypes.array,
+  labels: PropTypes.array,
+  artists: PropTypes.array,
+  setArtists: PropTypes.func,
+  setLabels: PropTypes.func,
+  setReleases: PropTypes.func,
+  setMasters: PropTypes.func,
+  results: PropTypes.array,
+  setResults: PropTypes.func,
 };
 
 export default Routes;

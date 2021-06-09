@@ -4,7 +4,7 @@ import {
   Button, Form, FormGroup, Label, Input
 } from 'reactstrap';
 import PropTypes from 'prop-types';
-import { addArtist } from '../data/axios';
+import { addArtist, updateArtist } from '../data/axios';
 
 const ArtistForm = ({
   title,
@@ -32,11 +32,10 @@ const ArtistForm = ({
       [e.target.name]: e.target.value
     }));
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (result.firebaseKey) {
-      console.warn('shit');
+      updateArtist(result, user).then(setResults);
     } else {
       addArtist(result, user).then((ArtistsArray) => setResults(ArtistsArray));
     }
@@ -107,7 +106,6 @@ ArtistForm.propTypes = {
   cover_image: PropTypes.string,
   firebaseKey: PropTypes.string,
   notes: PropTypes.string,
-  uid: PropTypes.any,
   user: PropTypes.any,
   type: PropTypes.string,
   id: PropTypes.number,

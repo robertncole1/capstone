@@ -1,30 +1,62 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import { Button, Form } from 'reactstrap';
 import AlbumCard from '../Components/AlbumCard';
-import ArtistCard from '../Components/ArtistCard';
-import { getAlbums, getArtist } from '../helpers/data/axios';
+// import ArtistCard from '../Components/ArtistCard';
+import { getAlbums } from '../helpers/data/axios';
 
 function SearchResults({ user, uid }) {
   const [results, setResults] = useState([]);
-  const [artists, setArtists] = useState([]);
+  // const [artists, setArtists] = useState([]);
+  const [apiInput, setApiInput] = useState('');
 
-  useEffect(() => {
-    getAlbums()
-      .then((albumArray) => {
-        setResults(albumArray);
-      });
-  }, []);
+  const grabApiSearch = () => {
+    getAlbums(apiInput)
+      .then((response) => setResults(response));
+  };
 
-  useEffect(() => {
-    getArtist()
-      .then((ArtistArray) => {
-        setArtists(ArtistArray);
-      });
-  }, []);
+  // useEffect(() => {
+  //   getAlbums(apiInput)
+  //     .then((albumArray) => {
+  //       setApiInput(albumArray);
+  //     });
+  // }, []);
+
+  // useEffect(() => {
+  //   getArtist()
+  //     .then((ArtistArray) => {
+  //       setArtists(ArtistArray);
+  //     });
+  // }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setApiInput('');
+    grabApiSearch();
+  };
+
+  const handleApiInput = (e) => {
+    setApiInput(e.target.value);
+  };
 
   return (
     <>
-      <h2>General Search Results</h2>
+    <Form className="search-form"
+      onSubmit={handleSubmit}>
+        <div className="form-group">
+          <h2
+            id="search-title">
+              Search by Artist, Release, Master, or Label
+          </h2>
+          <input
+            type="text"
+            className="form-control"
+            id="value"
+            onChange={handleApiInput}>
+          </input>
+        </div>
+        <Button type="submit">Search</Button>
+      </Form>
       <div className='my-search'>
         {results.map((result) => (
           <AlbumCard
@@ -46,8 +78,8 @@ function SearchResults({ user, uid }) {
           />
         ))}
         </div>
-        <h2>Artist Collection</h2>
-        <div className='my-search'>
+        {/* <h2>Artist Collection</h2> */}
+        {/* <div className='my-search'>
           {artists.map((result) => (
             <ArtistCard
               key={result.firebaseKey}
@@ -62,7 +94,7 @@ function SearchResults({ user, uid }) {
               setArtists={setArtists}
             />
           ))}
-        </div>
+        </div> */}
     </>
   );
 }
