@@ -4,9 +4,14 @@ import { Button, Form } from 'reactstrap';
 import AlbumCard from '../Components/AlbumCard';
 // import ArtistCard from '../Components/ArtistCard';
 import { getAlbums } from '../helpers/data/axios';
+import FilterButtons from '../Components/FilterButtons';
 
-function SearchResults({ user, uid }) {
-  const [results, setResults] = useState([]);
+function SearchResults({
+  user,
+  uid,
+  results,
+  setResults
+}) {
   // const [artists, setArtists] = useState([]);
   const [apiInput, setApiInput] = useState('');
 
@@ -57,6 +62,13 @@ function SearchResults({ user, uid }) {
         </div>
         <Button type="submit">Search</Button>
       </Form>
+      <div className='filter-btns'>
+          <FilterButtons
+            results={results}
+            setResults={setResults}
+            apiInput={apiInput}
+          />
+        </div>
       <div className='my-search'>
         {results.map((result) => (
           <AlbumCard
@@ -102,6 +114,8 @@ function SearchResults({ user, uid }) {
 SearchResults.propTypes = {
   user: PropTypes.any,
   uid: PropTypes.any,
+  results: PropTypes.array,
+  setResults: PropTypes.func,
 };
 
 export default SearchResults;
