@@ -37,6 +37,8 @@ function Routes({
         />
         <Route exact path='/search' component={ () => <SearchResults
           user={user}
+          results={results}
+          setResults={setResults}
       /> }
         />
          <Route path='/releases/:firebaseKey' component={ SingleView }
