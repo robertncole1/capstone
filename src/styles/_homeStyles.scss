@@ -1,0 +1,34 @@
+.hero-image {
+  background-image: url('https://firebasestorage.googleapis.com/v0/b/nss-capstone-28099.appspot.com/o/km-bg-2.png?alt=media&token=a043a0e7-bcd8-4fb4-a905-eb25fbcbf56e');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width:100%;
+  padding: 280px 60px;
+  color:#fff;
+}
+
+.hero-text {
+  display: block;
+  position: relative;
+  bottom: 170%;
+  right: 10%;
+  color: white;
+  text-align: left;
+
+  h2 {
+    font-weight: 700;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    text-align: left;
+  }
+}
+
+.search-home-botton {
+  text-align: center;
+  padding-top: 20px;
+}
+
+.search-home {
+  padding: 100px 0px;
+}

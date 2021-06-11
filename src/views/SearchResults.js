@@ -5,12 +5,13 @@ import AlbumCard from '../Components/AlbumCard';
 // import ArtistCard from '../Components/ArtistCard';
 import { getAlbums } from '../helpers/data/axios';
 import FilterButtons from '../Components/FilterButtons';
+import SearchHeader from '../Components/SearchHeader';
 
 function SearchResults({
   user,
   uid,
   results,
-  setResults
+  setResults,
 }) {
   // const [artists, setArtists] = useState([]);
   const [apiInput, setApiInput] = useState('');
@@ -20,19 +21,9 @@ function SearchResults({
       .then((response) => setResults(response));
   };
 
-  // useEffect(() => {
-  //   getAlbums(apiInput)
-  //     .then((albumArray) => {
-  //       setApiInput(albumArray);
-  //     });
-  // }, []);
-
-  // useEffect(() => {
-  //   getArtist()
-  //     .then((ArtistArray) => {
-  //       setArtists(ArtistArray);
-  //     });
-  // }, []);
+  const handleApiInput = (e) => {
+    setApiInput(e.target.value);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -40,19 +31,16 @@ function SearchResults({
     grabApiSearch();
   };
 
-  const handleApiInput = (e) => {
-    setApiInput(e.target.value);
-  };
-
   return (
     <>
+    <SearchHeader/>
     <Form className="search-form"
       onSubmit={handleSubmit}>
         <div className="form-group">
-          <h2
+          <h3
             id="search-title">
               Search by Artist, Release, Master, or Label
-          </h2>
+          </h3>
           <input
             type="text"
             className="form-control"
@@ -60,19 +48,20 @@ function SearchResults({
             onChange={handleApiInput}>
           </input>
         </div>
-        <Button type="submit">Search</Button>
+        <Button className="sign-in" type="submit">Search</Button>
       </Form>
       <div className='filter-btns'>
           <FilterButtons
             results={results}
             setResults={setResults}
             apiInput={apiInput}
+            setApiInput={setApiInput}
           />
         </div>
       <div className='my-search'>
         {results.map((result) => (
           <AlbumCard
-            key={result.firebaseKey}
+            key={result.id}
             firebaseKey={result.firebaseKey}
             title={result.title}
             notes={result.notes}
