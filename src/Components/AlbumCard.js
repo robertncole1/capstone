@@ -175,7 +175,7 @@ AlbumCard.propTypes = {
   cover_image: PropTypes.string,
   barcode: PropTypes.array,
   type: PropTypes.string,
-  format: PropTypes.string,
+  format: PropTypes.array,
   year: PropTypes.string,
   id: PropTypes.number,
   user: PropTypes.any,
