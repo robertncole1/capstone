@@ -9,7 +9,6 @@ import NavBar from '../Components/Navbar';
 
 function App() {
   const [user, setUser] = useState({});
-  const [results, setResults] = useState([]);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
@@ -34,8 +33,6 @@ function App() {
       />
       <Routes
         user={user}
-        results={results}
-        setResults={setResults}
       />
     </div>
   );

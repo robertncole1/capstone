@@ -6,7 +6,7 @@ export default function SearchHome() {
     <div className="search-home">
       <h2>Search for Your Favorites and Add them to Your Collection</h2>
       <div className="search-home-botton">
-        <Button className='sign-in' color='link' href="/search">Get Started</Button>
+        <Button className='sign-in' href="/search">Get Started</Button>
       </div>
     </div>
   );

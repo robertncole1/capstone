@@ -10,11 +10,10 @@ import SearchHeader from '../Components/SearchHeader';
 function SearchResults({
   user,
   uid,
-  results,
-  setResults,
 }) {
   // const [artists, setArtists] = useState([]);
   const [apiInput, setApiInput] = useState('');
+  const [results, setResults] = useState([]);
 
   const grabApiSearch = () => {
     getAlbums(apiInput)
@@ -27,7 +26,6 @@ function SearchResults({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setApiInput('');
     grabApiSearch();
   };
 
@@ -45,7 +43,9 @@ function SearchResults({
             type="text"
             className="form-control"
             id="value"
-            onChange={handleApiInput}>
+            onChange={handleApiInput}
+            required
+            >
           </input>
         </div>
         <Button className="sign-in" type="submit">Search</Button>
@@ -103,8 +103,6 @@ function SearchResults({
 SearchResults.propTypes = {
   user: PropTypes.any,
   uid: PropTypes.any,
-  results: PropTypes.array,
-  setResults: PropTypes.func,
 };
 
 export default SearchResults;
