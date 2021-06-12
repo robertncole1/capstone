@@ -3,6 +3,11 @@
 @import 'homeStyles';
 @import 'navStyles';
 @import 'searchStyles';
+@import 'collectionStyles';
+
+body {
+  font-family: $primary-font;
+}
 
 .card {
   width: 300px;

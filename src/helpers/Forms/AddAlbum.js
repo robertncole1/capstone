@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   Button, Form, FormGroup, Label, Input
 } from 'reactstrap';
@@ -33,6 +34,7 @@ const AlbumsForm = ({
     uid: user.uid || null,
     firebaseKey: firebaseKey || null
   });
+  const history = useHistory();
 
   const handleInputChange = (e) => {
     setResult((prevState) => ({
@@ -46,7 +48,9 @@ const AlbumsForm = ({
     if (result.firebaseKey) {
       updateRelease(result, user).then(setResults);
     } else {
-      addAlbum(result, user).then((ReleasesArray) => setResults(ReleasesArray));
+      addAlbum(result, user).then(() => {
+        history.push('/collection');
+      });
     }
   };
 
@@ -172,7 +176,7 @@ AlbumsForm.propTypes = {
   year: PropTypes.string,
   type: PropTypes.string,
   format: PropTypes.string,
-  barcode: PropTypes.array,
+  barcode: PropTypes.string,
   id: PropTypes.number,
   uid: PropTypes.any,
   user: PropTypes.any,

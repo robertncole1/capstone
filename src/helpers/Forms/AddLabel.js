@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   Button, Form, FormGroup, Label, Input
 } from 'reactstrap';
@@ -25,6 +26,7 @@ const LabelForm = ({
     uid: user.uid || null,
     firebaseKey: firebaseKey || null
   });
+  const history = useHistory();
 
   const handleInputChange = (e) => {
     setResult((prevState) => ({
@@ -38,7 +40,9 @@ const LabelForm = ({
     if (result.firebaseKey) {
       updateLabel(result, user).then(setResults);
     } else {
-      AddLabel(result, user).then((LabelsArray) => setResults(LabelsArray));
+      AddLabel(result, user).then(() => {
+        history.push('/collection');
+      });
     }
   };
 

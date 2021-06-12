@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   Button, Form, FormGroup, Label, Input
 } from 'reactstrap';
@@ -25,6 +26,7 @@ const MasterForm = ({
     uid: user.uid || null,
     firebaseKey: firebaseKey || null
   });
+  const history = useHistory();
 
   const handleInputChange = (e) => {
     setResult((prevState) => ({
@@ -38,7 +40,9 @@ const MasterForm = ({
     if (result.firebaseKey) {
       updateMaster(result, user).then(setResults);
     } else {
-      AddMaster(result, user).then((MastersArray) => setResults(MastersArray));
+      AddMaster(result, user).then(() => {
+        history.push('/collection');
+      });
     }
   };
 

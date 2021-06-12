@@ -5,7 +5,7 @@ function Button({ button, filter }) {
   return (
         <div className="buttons">
             {
-                button.map((cat, i) => <button key={i} type="button" onClick={() => filter(cat)} className="btn">{cat}</button>)
+                button.map((cat, i) => <button key={i} type="button" onClick={() => filter(cat)} className="btn filter-buttons">{cat}</button>)
             }
         </div>
   );
