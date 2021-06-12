@@ -4,6 +4,7 @@ import CollectionCard from '../Components/CollectionCard';
 import {
   getCollectionArtists, getCollectionLabels, getCollectionMasters, getCollectionReleases
 } from '../helpers/data/axios';
+import CollectionHeader from '../Components/CollectionHeader';
 
 function Collection({ user }) {
   const [releases, setReleases] = useState([]);
@@ -41,90 +42,93 @@ function Collection({ user }) {
 
   return (
     <>
-      <h2>My Releases</h2>
-      <div className='my-search'>
-        {releases.map((result) => (
-          <CollectionCard
-            key={result.firebaseKey}
-            firebaseKey={result.firebaseKey}
-            title={result.title}
-            notes={result.notes}
-            country={result.country}
-            cover_image={result.cover_image}
-            barcode={result.barcode}
-            year={result.year}
-            format={result.format}
-            type={result.type}
-            user={user}
-            id={result.id}
-            releases={releases}
-            setReleases={setReleases}
-          />
-        ))}
-        </div>
-        <h2>My Artists</h2>
-        <div className='my-search'>
-        {artists.map((result) => (
-          <CollectionCard
-            key={result.firebaseKey}
-            firebaseKey={result.firebaseKey}
-            title={result.title}
-            notes={result.notes}
-            country={result.country}
-            cover_image={result.cover_image}
-            barcode={result.barcode}
-            year={result.year}
-            format={result.format}
-            type={result.type}
-            id={result.id}
-            user={user}
-            artists={artists}
-            setArtists={setArtists}
-          />
-        ))}
-        </div>
-        <h2>My Labels</h2>
-        <div className='my-search'>
-        {labels.map((result) => (
-          <CollectionCard
-            key={result.firebaseKey}
-            firebaseKey={result.firebaseKey}
-            title={result.title}
-            notes={result.notes}
-            country={result.country}
-            cover_image={result.cover_image}
-            barcode={result.barcode}
-            year={result.year}
-            format={result.format}
-            type={result.type}
-            user={user}
-            id={result.id}
-            labels={labels}
-            setLabels={setLabels}
-          />
-        ))}
-        </div>
-        <h2>My Masters</h2>
-        <div className='my-search'>
-        {masters.map((result) => (
-          <CollectionCard
-            key={result.firebaseKey}
-            firebaseKey={result.firebaseKey}
-            title={result.title}
-            notes={result.notes}
-            country={result.country}
-            cover_image={result.cover_image}
-            barcode={result.barcode}
-            year={result.year}
-            user={user}
-            format={result.format}
-            type={result.type}
-            id={result.id}
-            masters={masters}
-            setMasters={setMasters}
-          />
-        ))}
-        </div>
+      <CollectionHeader/>
+      <div className='my-collection-section'>
+        <h2>My Releases</h2>
+        <div className='my-collection'>
+          {releases.map((result) => (
+            <CollectionCard
+              key={result.firebaseKey}
+              firebaseKey={result.firebaseKey}
+              title={result.title}
+              notes={result.notes}
+              country={result.country}
+              cover_image={result.cover_image}
+              barcode={result.barcode}
+              year={result.year}
+              format={result.format}
+              type={result.type}
+              user={user}
+              id={result.id}
+              releases={releases}
+              setReleases={setReleases}
+            />
+          ))}
+          </div>
+          <h2>My Artists</h2>
+          <div className='my-collection'>
+          {artists.map((result) => (
+            <CollectionCard
+              key={result.firebaseKey}
+              firebaseKey={result.firebaseKey}
+              title={result.title}
+              notes={result.notes}
+              country={result.country}
+              cover_image={result.cover_image}
+              barcode={result.barcode}
+              year={result.year}
+              format={result.format}
+              type={result.type}
+              id={result.id}
+              user={user}
+              artists={artists}
+              setArtists={setArtists}
+            />
+          ))}
+          </div>
+          <h2>My Labels</h2>
+          <div className='my-collection'>
+          {labels.map((result) => (
+            <CollectionCard
+              key={result.firebaseKey}
+              firebaseKey={result.firebaseKey}
+              title={result.title}
+              notes={result.notes}
+              country={result.country}
+              cover_image={result.cover_image}
+              barcode={result.barcode}
+              year={result.year}
+              format={result.format}
+              type={result.type}
+              user={user}
+              id={result.id}
+              labels={labels}
+              setLabels={setLabels}
+            />
+          ))}
+          </div>
+          <h2>My Masters</h2>
+          <div className='my-collection'>
+          {masters.map((result) => (
+            <CollectionCard
+              key={result.firebaseKey}
+              firebaseKey={result.firebaseKey}
+              title={result.title}
+              notes={result.notes}
+              country={result.country}
+              cover_image={result.cover_image}
+              barcode={result.barcode}
+              year={result.year}
+              user={user}
+              format={result.format}
+              type={result.type}
+              id={result.id}
+              masters={masters}
+              setMasters={setMasters}
+            />
+          ))}
+          </div>
+      </div>
     </>
   );
 }

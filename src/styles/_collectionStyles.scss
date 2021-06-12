@@ -1,0 +1,36 @@
+.hero-image-coll {
+  background-color: #AFAFAF;
+  width:100%;
+  padding: 100px 60px;
+  color:#fff;
+}
+
+.hero-text-coll {
+  display: block;
+  position: relative;
+  color: black;
+
+  h2 {
+    font-weight: 700;
+    font-size: 2.5em;
+    text-transform: uppercase;
+  }
+}
+
+.my-collection-section {
+  padding-top: 70px;
+}
+
+.my-collection {
+  display: flex;
+  justify-content: flex-start;
+  width: 1250px;
+  margin: auto;
+  flex-flow: row wrap;
+  text-align: left;
+}
+
+.card {
+  margin: 40px;
+}
+

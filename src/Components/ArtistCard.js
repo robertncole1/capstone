@@ -70,7 +70,7 @@ ArtistCard.propTypes = {
   title: PropTypes.string,
   country: PropTypes.string,
   cover_image: PropTypes.string,
-  barcode: PropTypes.array,
+  barcode: PropTypes.string,
   year: PropTypes.string,
   id: PropTypes.number,
   notes: PropTypes.string,

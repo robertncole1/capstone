@@ -23,13 +23,6 @@ const AlbumCard = ({
 }) => {
   const [editing, setEditing] = useState(false);
 
-  // useEffect(() => {
-  //   getPrice()
-  //     .then((PriceArray) => {
-  //       setPrice(PriceArray);
-  //     });
-  // }, []);
-
   // eslint-disable-next-line no-shadow
   const handleProjectsButton = (type) => {
     switch (type) {
@@ -77,11 +70,11 @@ const AlbumCard = ({
           <CardSubtitle tag="h6" className="mb-2 text-muted">Type: {type}</CardSubtitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Country: {country}</CardSubtitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Year: {year}</CardSubtitle>
-          <CardSubtitle tag="h6" className="mb-2 text-muted">Format: {format}</CardSubtitle>
+          <CardSubtitle tag="h6" className="mb-2 text-muted">Format: {format.join(', ')}</CardSubtitle>
         </CardBody>
         <img width="100%" className="img-container" src={cover_image} alt={title}/>
         <CardBody>
-          <CardText>Barcodes: {barcode}</CardText>
+          <CardText>Barcodes: {barcode.slice(0, 2).join(', ')}</CardText>
           <CardText>Release ID: {id}</CardText>
           <Button onClick={() => handleProjectsButton('edit') }>Add Release to Collection</Button>
           {
@@ -94,8 +87,8 @@ const AlbumCard = ({
               year={year}
               uid={uid}
               user={user}
-              format={format}
-              barcode={barcode}
+              format={format.join(', ')}
+              barcode={barcode.slice(0, 2).join(', ')}
               type={type}
               id={id}
               setResults={setResults}
@@ -173,9 +166,9 @@ AlbumCard.propTypes = {
   title: PropTypes.string,
   country: PropTypes.string,
   cover_image: PropTypes.string,
-  barcode: PropTypes.array,
+  barcode: PropTypes.string,
   type: PropTypes.string,
-  format: PropTypes.array,
+  format: PropTypes.string,
   year: PropTypes.string,
   id: PropTypes.number,
   user: PropTypes.any,

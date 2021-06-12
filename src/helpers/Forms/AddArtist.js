@@ -1,5 +1,6 @@
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   Button, Form, FormGroup, Label, Input
 } from 'reactstrap';
@@ -25,6 +26,7 @@ const ArtistForm = ({
     uid: user.uid || null,
     firebaseKey: firebaseKey || null
   });
+  const history = useHistory();
 
   const handleInputChange = (e) => {
     setResult((prevState) => ({
@@ -37,7 +39,9 @@ const ArtistForm = ({
     if (result.firebaseKey) {
       updateArtist(result, user).then(setResults);
     } else {
-      addArtist(result, user).then((ArtistsArray) => setResults(ArtistsArray));
+      addArtist(result, user).then(() => {
+        history.push('/collection');
+      });
     }
   };
 
