@@ -10,7 +10,6 @@ import LabelForm from '../helpers/Forms/AddLabel';
 import MasterForm from '../helpers/Forms/AddMaster';
 
 const ModalExample = ({
-  setResults,
   firebaseKey,
   title,
   country,
@@ -22,7 +21,11 @@ const ModalExample = ({
   uid,
   format,
   id,
-  notes
+  notes,
+  setReleases,
+  setMasters,
+  setLabels,
+  setArtists,
 }) => {
   const [modal, setModal] = useState(true);
 
@@ -41,7 +44,8 @@ const ModalExample = ({
               uid={uid}
               user={user}
               type={type}
-              setResults={setResults}
+              setArtists={setArtists}
+              setModal={setModal}
             />
         }
         { type === 'release' && <AlbumsForm
@@ -57,7 +61,8 @@ const ModalExample = ({
               type={type}
               id={id}
               barcode={barcode}
-              setResults={setResults}
+              setReleases={setReleases}
+              setModal={setModal}
             />
         }
         { type === 'label' && <LabelForm
@@ -69,7 +74,8 @@ const ModalExample = ({
               user={user}
               type={type}
               id={id}
-              setResults={setResults}
+              setLabels={setLabels}
+              setModal={setModal}
             />
         }
         { type === 'master' && <MasterForm
@@ -81,7 +87,8 @@ const ModalExample = ({
               user={user}
               type={type}
               id={id}
-              setResults={setResults}
+              setMasters={setMasters}
+              setModal={setModal}
             />
         }
         </ModalBody>
@@ -91,7 +98,10 @@ const ModalExample = ({
 };
 
 ModalExample.propTypes = {
-  setResults: PropTypes.func,
+  setReleases: PropTypes.func,
+  setArtists: PropTypes.func,
+  setLabels: PropTypes.func,
+  setMasters: PropTypes.func,
   firebaseKey: PropTypes.string,
   title: PropTypes.string,
   country: PropTypes.string,

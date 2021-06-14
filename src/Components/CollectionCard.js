@@ -22,7 +22,6 @@ const CollectionCard = ({
   user,
   uid,
   format,
-  setResults,
   setMasters,
   setReleases,
   setLabels,
@@ -95,7 +94,7 @@ const CollectionCard = ({
                 uid={uid}
                 type={type}
                 id={id}
-                setResults={setResults}
+                setArtists={setArtists}
               />
             }
             </CardBody>
@@ -131,7 +130,7 @@ const CollectionCard = ({
               barcode={barcode}
               type={type}
               id={id}
-              setResults={setResults}
+              setReleases={setReleases}
             />
             }
         </CardBody>
@@ -160,7 +159,7 @@ const CollectionCard = ({
               year={year}
               type={type}
               id={id}
-              setResults={setResults}
+              setLabels={setLabels}
               />
             }
         </CardBody>
@@ -191,7 +190,7 @@ const CollectionCard = ({
               user={user}
               type={type}
               id={id}
-              setResults={setResults}
+              setMasters={setMasters}
               />
             }
         </CardBody>
@@ -213,7 +212,6 @@ CollectionCard.propTypes = {
   uid: PropTypes.any,
   format: PropTypes.string,
   year: PropTypes.string,
-  setResults: PropTypes.func,
   notes: PropTypes.string,
   setArtists: PropTypes.func,
   setLabels: PropTypes.func,

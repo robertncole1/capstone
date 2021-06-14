@@ -15,7 +15,8 @@ const LabelForm = ({
   notes,
   id,
   user,
-  setResults
+  setLabels,
+  setModal
 }) => {
   const [result, setResult] = useState({
     title: title || '',
@@ -38,7 +39,8 @@ const LabelForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     if (result.firebaseKey) {
-      updateLabel(result, user).then(setResults);
+      updateLabel(result, user).then(setLabels);
+      setModal(false);
     } else {
       AddLabel(result, user).then(() => {
         history.push('/collection');
@@ -116,7 +118,8 @@ LabelForm.propTypes = {
   uid: PropTypes.any,
   user: PropTypes.any,
   id: PropTypes.number,
-  setResults: PropTypes.func
+  setLabels: PropTypes.func,
+  setModal: PropTypes.func
 };
 
 export default LabelForm;

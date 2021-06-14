@@ -15,7 +15,8 @@ const MasterForm = ({
   notes,
   id,
   user,
-  setResults
+  setMasters,
+  setModal
 }) => {
   const [result, setResult] = useState({
     title: title || '',
@@ -38,7 +39,8 @@ const MasterForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     if (result.firebaseKey) {
-      updateMaster(result, user).then(setResults);
+      updateMaster(result, user).then(setMasters);
+      setModal(false);
     } else {
       AddMaster(result, user).then(() => {
         history.push('/collection');
@@ -116,7 +118,8 @@ MasterForm.propTypes = {
   uid: PropTypes.any,
   user: PropTypes.any,
   id: PropTypes.number,
-  setResults: PropTypes.func
+  setMasters: PropTypes.func,
+  setModal: PropTypes.func
 };
 
 export default MasterForm;
