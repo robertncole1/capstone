@@ -19,7 +19,8 @@ const AlbumsForm = ({
   id,
   type,
   user,
-  setResults
+  setReleases,
+  setModal
 }) => {
   const [result, setResult] = useState({
     title: title || '',
@@ -46,7 +47,8 @@ const AlbumsForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     if (result.firebaseKey) {
-      updateRelease(result, user).then(setResults);
+      updateRelease(result, user).then(setReleases);
+      setModal(false);
     } else {
       addAlbum(result, user).then(() => {
         history.push('/collection');
@@ -178,9 +180,9 @@ AlbumsForm.propTypes = {
   format: PropTypes.string,
   barcode: PropTypes.string,
   id: PropTypes.number,
-  uid: PropTypes.any,
   user: PropTypes.any,
-  setResults: PropTypes.func
+  setReleases: PropTypes.func,
+  setModal: PropTypes.func
 };
 
 export default AlbumsForm;

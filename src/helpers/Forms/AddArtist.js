@@ -15,7 +15,8 @@ const ArtistForm = ({
   type,
   id,
   user,
-  setResults,
+  setArtists,
+  setModal
 }) => {
   const [result, setResult] = useState({
     title: title || '',
@@ -37,7 +38,8 @@ const ArtistForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     if (result.firebaseKey) {
-      updateArtist(result, user).then(setResults);
+      updateArtist(result, user).then(setArtists);
+      setModal(false);
     } else {
       addArtist(result, user).then(() => {
         history.push('/collection');
@@ -113,7 +115,8 @@ ArtistForm.propTypes = {
   user: PropTypes.any,
   type: PropTypes.string,
   id: PropTypes.number,
-  setResults: PropTypes.func
+  setArtists: PropTypes.func,
+  setModal: PropTypes.func
 };
 
 export default ArtistForm;

@@ -39,6 +39,7 @@ export default function SingleView() {
         <CardText>Notes: {album.notes}</CardText>
         <CardLink className="delete-link" onClick={() => handleGetPrice()}>View Price</CardLink>
         { result > 1 && <CardText>Lowest Selling Price: ${result}</CardText> }
+        { result === null && <CardText>None for Sale</CardText> }
       </CardBody>
       </Card>
   );
