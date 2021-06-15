@@ -56,6 +56,12 @@ const getCollectionMasters = (user) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getPublicReleases = () => new Promise((resolve, reject) => {
+  axios.get(`${dbURL}/releases.json?orderBy="publicCollection"&equalTo=true`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
+
 const getPrice = (id) => new Promise((resolve, reject) => {
   axios.get(`${apiPriceUrl}/${id}`)
     .then((response) => resolve(response.data.lowest_price))
@@ -164,6 +170,7 @@ export {
   getAlbums,
   addAlbum,
   getPrice,
+  getPublicReleases,
   getSingleAlbum,
   updateRelease,
   updateMaster,

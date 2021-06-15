@@ -27,6 +27,7 @@ const CollectionCard = ({
   setLabels,
   setArtists,
   id,
+  publicCollection,
   notes
 }) => {
   const [editing, setEditing] = useState(false);
@@ -61,15 +62,6 @@ const CollectionCard = ({
         console.warn('No button clicked');
     }
   };
-
-  // const editView = () => (
-  //   <>
-  //     <CardLink onClick={() => handleProjectsButton('edit')}>
-  //       {editing ? 'Close Form' : 'Edit Card'}
-  //     </CardLink>
-  //     <CardLink className="delete-link" onClick={() => handleProjectsButton('delete')}>Delete</CardLink>
-  //   </>
-  // );
 
   return (
     <>
@@ -124,6 +116,7 @@ const CollectionCard = ({
               notes={notes}
               country={country}
               year={year}
+              publicCollection={publicCollection}
               uid={uid}
               user={user}
               format={format}
@@ -213,6 +206,7 @@ CollectionCard.propTypes = {
   format: PropTypes.string,
   year: PropTypes.string,
   notes: PropTypes.string,
+  publicCollection: PropTypes.bool,
   setArtists: PropTypes.func,
   setLabels: PropTypes.func,
   setReleases: PropTypes.func,
