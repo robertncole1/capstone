@@ -22,6 +22,7 @@ const ModalExample = ({
   format,
   id,
   notes,
+  publicCollection,
   setReleases,
   setMasters,
   setLabels,
@@ -60,6 +61,7 @@ const ModalExample = ({
               user={user}
               type={type}
               id={id}
+              publicCollection={publicCollection}
               barcode={barcode}
               setReleases={setReleases}
               setModal={setModal}
@@ -112,6 +114,7 @@ ModalExample.propTypes = {
   year: PropTypes.string,
   id: PropTypes.number,
   user: PropTypes.any,
+  publicCollection: PropTypes.bool,
   uid: PropTypes.any,
   notes: PropTypes.string,
 };

@@ -53,46 +53,6 @@ const LabelForm = ({
       <Form id='addProjectForm' autoComplete='off' onSubmit={handleSubmit}>
         <h2>Add Label to Collecton</h2>
         <FormGroup>
-          <Label for="title">Title:</Label>
-          <Input
-            name='title'
-            id='title'
-            value={result.title}
-            readOnly="readOnly"
-            type='text'
-            placeholder=''
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="cover_image">Image:</Label>
-          <Input
-            name='cover_image'
-            id='cover_image'
-            value={result.cover_image}
-            readOnly="readOnly"
-            type='text'
-            placeholder=''
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="id">Album ID:</Label>
-          <Input
-            name='id'
-            className='form-id'
-            id='id'
-            value={result.id}
-            readOnly="readOnly"
-            type='text'
-            placeholder=''
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-
-        <FormGroup>
           <Label for="notes">Notes:</Label>
           <Input
             name='notes'

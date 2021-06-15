@@ -60,6 +60,7 @@ function Collection({ user }) {
               type={result.type}
               user={user}
               id={result.id}
+              publicCollection={result.publicCollection}
               releases={releases}
               setReleases={setReleases}
             />

@@ -52,51 +52,12 @@ const ArtistForm = ({
       <Form id='addProjectForm' autoComplete='off' onSubmit={handleSubmit}>
         <h2>Add Artist to Collecton</h2>
         <FormGroup>
-          <Label for="title">Title:</Label>
-          <Input
-            name='title'
-            id='title'
-            value={result.title}
-            readOnly="readOnly"
-            type='text'
-            placeholder='Enter a Title'
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="cover_image">Image:</Label>
-          <Input
-            name='cover_image'
-            id='cover_image'
-            value={result.cover_image}
-            readOnly="readOnly"
-            type='text'
-            placeholder='Enter a Image'
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="id">Album ID:</Label>
-          <Input
-            name='id'
-            id='id'
-            value={result.id}
-            readOnly="readOnly"
-            type='text'
-            placeholder='Enter a ID'
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-
-        <FormGroup>
           <Label for="notes">Notes:</Label>
           <Input
             name='notes'
             id='notes'
             value={result.notes}
-            type='text'
+            type='textarea'
             placeholder='Enter Notes About Artist'
             onChange={handleInputChange}
           />

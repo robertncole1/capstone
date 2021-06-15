@@ -20,7 +20,8 @@ const AlbumsForm = ({
   type,
   user,
   setReleases,
-  setModal
+  setModal,
+  publicCollection,
 }) => {
   const [result, setResult] = useState({
     title: title || '',
@@ -33,6 +34,7 @@ const AlbumsForm = ({
     type: type || '',
     id: id || '',
     uid: user.uid || null,
+    publicCollection: publicCollection || false,
     firebaseKey: firebaseKey || null
   });
   const history = useHistory();
@@ -40,7 +42,8 @@ const AlbumsForm = ({
   const handleInputChange = (e) => {
     setResult((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value
+      [e.target.name]:
+        e.target.name === 'publicCollection' ? e.target.checked : e.target.value,
     }));
   };
 
@@ -61,98 +64,6 @@ const AlbumsForm = ({
       <Form id='addProjectForm' autoComplete='off' onSubmit={handleSubmit}>
         <h2>Add Album to Collecton</h2>
         <FormGroup>
-          <Label for="title">Title:</Label>
-          <Input
-            name='title'
-            id='title'
-            value={result.title}
-            readOnly="readOnly"
-            type='text'
-            placeholder=''
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="cover_image">Image:</Label>
-          <Input
-            name='cover_image'
-            id='cover_image'
-            value={result.cover_image}
-            readOnly="readOnly"
-            type='text'
-            placeholder=''
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="year">Year:</Label>
-          <Input
-            name='year'
-            id='year'
-            value={result.year}
-            readOnly="readOnly"
-            type='text'
-            placeholder=''
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="format">Format:</Label>
-          <Input
-            name='format'
-            id='format'
-            value={result.format}
-            readOnly="readOnly"
-            type='text'
-            placeholder=''
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="barcode">Barcodes:</Label>
-          <Input
-            name='barcode'
-            id='barcode'
-            value={result.barcode}
-            readOnly="readOnly"
-            type='text'
-            placeholder=''
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="country">Country:</Label>
-          <Input
-            name='country'
-            id='country'
-            value={result.country}
-            readOnly="readOnly"
-            type='text'
-            placeholder=''
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-
-        <FormGroup>
-          <Label for="id">Album ID:</Label>
-          <Input
-            name='id'
-            className='form-id'
-            id='id'
-            value={result.id}
-            readOnly="readOnly"
-            type='text'
-            placeholder=''
-            onChange={handleInputChange}
-          />
-        </FormGroup>
-
-        <FormGroup>
           <Label for="notes">Notes:</Label>
           <Input
             name='notes'
@@ -162,6 +73,19 @@ const AlbumsForm = ({
             placeholder='Enter Notes About Album'
             onChange={handleInputChange}
           />
+        </FormGroup>
+
+        <FormGroup check>
+          <Label check>
+            <Input
+            type='checkbox'
+            name='publicCollection'
+            id='publicCollection'
+            checked={result.publicCollection}
+            onChange={handleInputChange}
+                />
+            Make Album Public to Everyone?
+        </Label>
         </FormGroup>
         <Button type='submit'>Submit</Button>
       </Form>
@@ -181,6 +105,7 @@ AlbumsForm.propTypes = {
   barcode: PropTypes.string,
   id: PropTypes.number,
   user: PropTypes.any,
+  publicCollection: PropTypes.bool,
   setReleases: PropTypes.func,
   setModal: PropTypes.func
 };
