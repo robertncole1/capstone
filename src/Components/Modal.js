@@ -8,6 +8,7 @@ import AlbumsForm from '../helpers/Forms/AddAlbum';
 import ArtistForm from '../helpers/Forms/AddArtist';
 import LabelForm from '../helpers/Forms/AddLabel';
 import MasterForm from '../helpers/Forms/AddMaster';
+import GearForm from '../helpers/Forms/AddGear';
 
 const ModalExample = ({
   firebaseKey,
@@ -27,6 +28,11 @@ const ModalExample = ({
   setMasters,
   setLabels,
   setArtists,
+  gearName,
+  gearDescription,
+  modelNum,
+  gearImg,
+  setGear,
 }) => {
   const [modal, setModal] = useState(true);
 
@@ -93,6 +99,18 @@ const ModalExample = ({
               setModal={setModal}
             />
         }
+        { gearName.length > 0 && <GearForm
+            firebaseKey={firebaseKey}
+            gearName={gearName}
+            gearDescription={gearDescription}
+            modelNum={modelNum}
+            gearImg={gearImg}
+            notes={notes}
+            user={user}
+            setGear={setGear}
+            setModal={setModal}
+          />
+        }
         </ModalBody>
       </Modal>
     </div>
@@ -117,6 +135,11 @@ ModalExample.propTypes = {
   publicCollection: PropTypes.bool,
   uid: PropTypes.any,
   notes: PropTypes.string,
+  gearName: PropTypes.string,
+  gearDescription: PropTypes.string,
+  modelNum: PropTypes.string,
+  gearImg: PropTypes.string,
+  setGear: PropTypes.func,
 };
 
 export default ModalExample;
