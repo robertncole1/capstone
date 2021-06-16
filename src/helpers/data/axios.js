@@ -32,6 +32,35 @@ const getArtist = () => new Promise((resolve, reject) => {
 //   }).catch((error) => reject(error));
 // });
 
+const getGear = (user) => new Promise((resolve, reject) => {
+  axios.get(`${dbURL}/gear.json?orderBy="uid"&equalTo="${user.uid}"`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
+
+const addGear = (obj, user) => new Promise((resolve, reject) => {
+  axios.post(`${dbURL}/gear.json`, obj)
+    .then((response) => {
+      const body = { firebaseKey: response.data.name };
+      axios.patch(`${dbURL}/gear/${response.data.name}.json`, body)
+        .then(() => {
+          getGear(user).then((ReleasesArray) => resolve(ReleasesArray));
+        });
+    }).catch((error) => reject(error));
+});
+
+const updateGear = (obj, user) => new Promise((resolve, reject) => {
+  axios.patch(`${dbURL}/gear/${obj.firebaseKey}.json`, obj)
+    .then(() => getGear(user).then(resolve))
+    .catch((error) => reject(error));
+});
+
+const deleteGear = (firebaseKey, user) => new Promise((resolve, reject) => {
+  axios.delete(`${dbURL}/gear/${firebaseKey}.json`)
+    .then(() => getGear(user).then(resolve))
+    .catch((error) => reject(error));
+});
+
 const getCollectionReleases = (user) => new Promise((resolve, reject) => {
   axios.get(`${dbURL}/releases.json?orderBy="uid"&equalTo="${user.uid}"`)
     .then((response) => resolve(Object.values(response.data)))
@@ -170,6 +199,10 @@ export {
   getAlbums,
   addAlbum,
   getPrice,
+  getGear,
+  addGear,
+  updateGear,
+  deleteGear,
   getPublicReleases,
   getSingleAlbum,
   updateRelease,

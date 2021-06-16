@@ -16,9 +16,17 @@ const NavBar = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   const authenticated = () => (
+    <>
       <NavItem>
         <Link className="nav-link" id="that" to="/collection">My Collection</Link>
       </NavItem>
+      <NavItem>
+        <Link className="nav-link" id="that" to="/add-gear">Add Gear</Link>
+      </NavItem>
+      <NavItem>
+        <Link className="nav-link" id="that" to="/gear">Gear</Link>
+      </NavItem>
+    </>
   );
   return (
     <div>
