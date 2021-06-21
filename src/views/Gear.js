@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { getGear } from '../helpers/data/axios';
 import GearCard from '../Components/GearCard';
+import GearHeader from '../Components/GearHeader';
+import Footer from '../Components/Footer';
 
 function Gear({ user }) {
   const [gear, setGear] = useState([]);
@@ -15,8 +17,8 @@ function Gear({ user }) {
 
   return (
     <>
+    <GearHeader/>
       <div className='my-collection-section'>
-        <h2>My Gear</h2>
         <div className='my-collection'>
           {gear.map((result) => (
             <GearCard
@@ -34,6 +36,7 @@ function Gear({ user }) {
           ))}
           </div>
       </div>
+      <Footer/>
     </>
   );
 }

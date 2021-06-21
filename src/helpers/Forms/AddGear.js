@@ -48,8 +48,8 @@ const GearForm = ({
   };
 
   return (
-    <div className='project-form'>
-      <Form id='addProjectForm' autoComplete='off' onSubmit={handleSubmit}>
+    <div className='gear-form'>
+      <Form autoComplete='off' onSubmit={handleSubmit}>
         <h2>Add Gear to Collecton</h2>
         <FormGroup>
           <Label for="gearName">Gear Name:</Label>
@@ -106,7 +106,7 @@ const GearForm = ({
             onChange={handleInputChange}
           />
         </FormGroup>
-        <Button type='submit'>Submit</Button>
+        <Button className='sign-in' type='submit'>Submit</Button>
       </Form>
     </div>
   );

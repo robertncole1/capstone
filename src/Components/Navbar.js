@@ -21,10 +21,10 @@ const NavBar = ({ user }) => {
         <Link className="nav-link" id="that" to="/collection">My Collection</Link>
       </NavItem>
       <NavItem>
-        <Link className="nav-link" id="that" to="/add-gear">Add Gear</Link>
+        <Link className="nav-link" id="that" to="/gear">Gear</Link>
       </NavItem>
       <NavItem>
-        <Link className="nav-link" id="that" to="/gear">Gear</Link>
+        <Link className="nav-link" id="that" to="/add-gear">Add Gear</Link>
       </NavItem>
     </>
   );

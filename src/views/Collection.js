@@ -5,6 +5,7 @@ import {
   getCollectionArtists, getCollectionLabels, getCollectionMasters, getCollectionReleases
 } from '../helpers/data/axios';
 import CollectionHeader from '../Components/CollectionHeader';
+import Footer from '../Components/Footer';
 
 function Collection({ user }) {
   const [releases, setReleases] = useState([]);
@@ -130,6 +131,7 @@ function Collection({ user }) {
           ))}
           </div>
       </div>
+      <Footer/>
     </>
   );
 }

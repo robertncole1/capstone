@@ -47,20 +47,21 @@ const AlbumCard = ({
               }
             <CardBody>
             <CardText>Artist ID: {id}</CardText>
-            <Button onClick={() => handleProjectsButton('edit') }>Add Artist to Collection</Button>
-          {
-            editing && <ModalExample
-              title={title}
-              cover_image={cover_image}
-              firebaseKey={firebaseKey}
-              notes={notes}
-              type={type}
-              uid={uid}
-              user={user}
-              id={id}
-              setResults={setResults}
-            />
-          }
+            { user
+              ? <Button onClick={() => handleProjectsButton('edit') }>Add Artist to Collection</Button>
+              : ''
+            }
+            { editing && <ModalExample
+                  title={title}
+                  cover_image={cover_image}
+                  firebaseKey={firebaseKey}
+                  notes={notes}
+                  type={type}
+                  uid={uid}
+                  user={user}
+                  id={id}
+                  setResults={setResults}/>
+            }
             </CardBody>
         </Card>
     }
@@ -76,24 +77,26 @@ const AlbumCard = ({
         <CardBody>
           <CardText>Barcodes: {barcode.slice(0, 2).join(', ')}</CardText>
           <CardText>Release ID: {id}</CardText>
-          <Button onClick={() => handleProjectsButton('edit') }>Add Release to Collection</Button>
-          {
-            editing && <ModalExample
-              title={title}
-              cover_image={cover_image}
-              firebaseKey={firebaseKey}
-              notes={notes}
-              country={country}
-              year={year}
-              uid={uid}
-              user={user}
-              format={format.join(', ')}
-              barcode={barcode.slice(0, 2).join(', ')}
-              type={type}
-              id={id}
-              setResults={setResults}
-            />
+          { user
+            ? <Button onClick={() => handleProjectsButton('edit') }>Add Release to Collection</Button>
+            : ''
           }
+            { editing && <ModalExample
+                title={title}
+                cover_image={cover_image}
+                firebaseKey={firebaseKey}
+                notes={notes}
+                country={country}
+                year={year}
+                uid={uid}
+                user={user}
+                format={format.join(', ')}
+                barcode={barcode.slice(0, 2).join(', ')}
+                type={type}
+                id={id}
+                setResults={setResults}
+              />
+            }
         </CardBody>
       </Card>
     }
@@ -108,22 +111,24 @@ const AlbumCard = ({
         }
         <CardBody>
         <CardText>Release ID: {id}</CardText>
-          <Button onClick={() => handleProjectsButton('edit')}>Add Label to Collection</Button>
-          {
-            editing && <ModalExample
-            title={title}
-            cover_image={cover_image}
-            firebaseKey={firebaseKey}
-            notes={notes}
-            uid={uid}
-            user={user}
-            country={country}
-            year={year}
-            type={type}
-            id={id}
-            setResults={setResults}
-            />
+          { user
+            ? <Button onClick={() => handleProjectsButton('edit')}>Add Label to Collection</Button>
+            : ''
           }
+            { editing && <ModalExample
+                title={title}
+                cover_image={cover_image}
+                firebaseKey={firebaseKey}
+                notes={notes}
+                uid={uid}
+                user={user}
+                country={country}
+                year={year}
+                type={type}
+                id={id}
+                setResults={setResults}
+                />
+            }
         </CardBody>
       </Card>
     }
@@ -137,22 +142,24 @@ const AlbumCard = ({
         <img width="100%" className="img-container" src={cover_image} alt={title}/>
         <CardBody>
           <CardText>Master ID: {id}</CardText>
-          <Button onClick={() => handleProjectsButton('edit')}>Add Master to Collection</Button>
-          {
-            editing && <ModalExample
-            title={title}
-            cover_image={cover_image}
-            firebaseKey={firebaseKey}
-            notes={notes}
-            country={country}
-            year={year}
-            uid={uid}
-            user={user}
-            type={type}
-            id={id}
-            setResults={setResults}
-            />
+          { user
+            ? <Button onClick={() => handleProjectsButton('edit')}>Add Master to Collection</Button>
+            : ''
           }
+          { editing && <ModalExample
+                title={title}
+                cover_image={cover_image}
+                firebaseKey={firebaseKey}
+                notes={notes}
+                country={country}
+                year={year}
+                uid={uid}
+                user={user}
+                type={type}
+                id={id}
+                setResults={setResults}
+              />
+            }
         </CardBody>
       </Card>
     }

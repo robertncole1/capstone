@@ -97,6 +97,12 @@ const getPrice = (id) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getNumForSale = (id) => new Promise((resolve, reject) => {
+  axios.get(`${apiPriceUrl}/${id}`)
+    .then((response) => resolve(response.data.num_for_sale))
+    .catch((error) => reject(error));
+});
+
 const addAlbum = (obj, user) => new Promise((resolve, reject) => {
   axios.post(`${dbURL}/releases.json`, obj)
     .then((response) => {
@@ -220,5 +226,6 @@ export {
   deleteArtist,
   deleteLabel,
   deleteRelease,
-  deleteMaster
+  deleteMaster,
+  getNumForSale
 };
