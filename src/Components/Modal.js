@@ -99,7 +99,7 @@ const ModalExample = ({
               setModal={setModal}
             />
         }
-        { gearName.length > 0 && <GearForm
+        { gearName && <GearForm
             firebaseKey={firebaseKey}
             gearName={gearName}
             gearDescription={gearDescription}

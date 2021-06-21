@@ -3,6 +3,7 @@ import Header from '../Components/Header';
 import SearchHome from '../Components/SearchHome';
 import { getPublicReleases } from '../helpers/data/axios';
 import PublicCollectionCard from '../Components/PublicCollectionCard';
+import Footer from '../Components/Footer';
 
 export default function Home() {
   const [publicAlbums, setPublicAlbums] = useState([]);
@@ -35,6 +36,7 @@ export default function Home() {
         />
       ))}
       </div>
+      <Footer/>
     </>
   );
 }

@@ -39,6 +39,10 @@ function SearchResults({
             id="search-title">
               Search by Artist, Release, Master, or Label
           </h3>
+          { user
+            ? ''
+            : <h6>Please Sign In to Add to Your Collection</h6>
+          }
           <input
             type="text"
             className="form-control"
