@@ -1,4 +1,5 @@
 ## Front-end Capstone
+[![Netlify Status](https://api.netlify.com/api/v1/badges/e9addd5f-4a90-4276-a9d4-5e8b5e21261d/deploy-status)](https://app.netlify.com/sites/soundselection/deploys)
 
 ### Project Name
 "Sound Selection"
@@ -8,6 +9,8 @@ This app will not only give you the ability to seee your entire music collection
 For me, this project is personal. My dad passed away in 2014. I grew up with him playing music in the house on his old vinyl records. Everything from the Beatles to Madonna to Michael Jackson. He liked all music, as long as it was played loud and especially on his old record player. He would spend hours figuring out if his version of the White Album by the Beatles was the version that was worth thousands of dollars. (Spoiler: It wasn't). Now instead of googling every single record, searching through sites to find the correct barcode and label, I want to use an API to find your specific record and create your own collection. This way, you can keep your music in one digital place for the physical records of your life. 
 ### ERD
 https://dbdiagram.io/d/60b25eaab29a09603d1719ce
+### Deployment Link
+https://soundselection.netlify.app/
 ### Wireframe
 https://xd.adobe.com/view/a4efdeef-822a-49d6-be24-97b1d486e434-f1bc/?hints=off
 
