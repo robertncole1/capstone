@@ -19,6 +19,9 @@ function Gear({ user }) {
     <>
     <GearHeader/>
       <div className='my-collection-section'>
+      { gear.length < 1
+            && <h6>No Gear Added to your Collection.</h6>
+        }
         <div className='my-collection'>
           {gear.map((result) => (
             <GearCard
