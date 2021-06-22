@@ -46,6 +46,9 @@ function Collection({ user }) {
       <CollectionHeader/>
       <div className='my-collection-section'>
         <h2>My Releases</h2>
+        { releases.length < 1
+            && <h6>No Releases Added to your Collection.</h6>
+        }
         <div className='my-collection'>
           {releases.map((result) => (
             <CollectionCard
@@ -68,6 +71,9 @@ function Collection({ user }) {
           ))}
           </div>
           <h2>My Artists</h2>
+          { artists.length < 1
+            && <h6>No Artists Added to your Collection.</h6>
+          }
           <div className='my-collection'>
           {artists.map((result) => (
             <CollectionCard
@@ -89,6 +95,9 @@ function Collection({ user }) {
           ))}
           </div>
           <h2>My Labels</h2>
+          { labels.length < 1
+            && <h6>No Labels Added to your Collection.</h6>
+          }
           <div className='my-collection'>
           {labels.map((result) => (
             <CollectionCard
@@ -110,6 +119,9 @@ function Collection({ user }) {
           ))}
           </div>
           <h2>My Masters</h2>
+          { masters.length < 1
+            && <h6>No Masters Added to your Collection.</h6>
+          }
           <div className='my-collection'>
           {masters.map((result) => (
             <CollectionCard
