@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import Routes from '../helpers/Routes';
-// import Collection from '../views/Collection';
-// import SearchResults from '../views/searchResults';
 import './App.scss';
 import NavBar from '../Components/Navbar';
 
