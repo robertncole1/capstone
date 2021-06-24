@@ -41,7 +41,7 @@ const ModalExample = ({
   return (
     <div>
       <Modal isOpen={modal} toggle={toggle}>
-        <ModalBody>
+        <ModalBody className="dark-modal">
         { type === 'artist' && <ArtistForm
               title={title}
               cover_image={cover_image}
