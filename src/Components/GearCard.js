@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import {
   Card, CardText, CardSubtitle, CardLink,
-  CardTitle, CardBody
+  CardTitle, CardBody, CardImg
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import ModalExample from './Modal';
@@ -38,12 +38,10 @@ const GearCard = ({
   return (
     <>
           <Card>
+          <CardImg src={gearImg} alt={gearName} top></CardImg>
             <CardBody>
               <CardTitle tag="h5">{gearName}</CardTitle>
               <CardSubtitle tag="h6" className="mb-2 text-muted">Type: {gearDescription}</CardSubtitle>
-            </CardBody>
-            <img width="100%" className="img-container" src={gearImg} alt={gearName}/>
-            <CardBody>
             <CardText>Model Number: {modelNum}</CardText>
             <CardText>Notes: {notes}</CardText>
             <CardLink className="delete-link" onClick={() => handleProjectsButton('edit')}>Edit</CardLink>

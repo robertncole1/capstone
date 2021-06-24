@@ -1,6 +1,6 @@
 .sign-out {
   border: 2px solid #dfb921;
-  background-color: white;
+  background-color: #2b2b2b;
   padding: 5px 20px;
   color: #dfb921;
   border-radius: 0px;
@@ -16,4 +16,12 @@
 }
 .navbar-logo {
   width: 250px;
+}
+
+.nav-link {
+  color: white;
+}
+
+.nav-link:hover {
+  color: #dfb921;
 }

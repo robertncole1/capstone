@@ -51,7 +51,7 @@ const MasterForm = ({
   return (
     <div className='project-form'>
       <Form id='addProjectForm' autoComplete='off' onSubmit={handleSubmit}>
-        <h2>Add Label to Collecton</h2>
+        <h2>Add Master to Collecton</h2>
         <FormGroup>
           <Label for="notes">Notes:</Label>
           <Input

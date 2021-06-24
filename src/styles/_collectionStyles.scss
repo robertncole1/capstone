@@ -1,5 +1,5 @@
 .hero-image-coll {
-  background-color: #AFAFAF;
+  background-color: #303030;
   width:100%;
   padding: 100px 60px;
   color:#fff;
@@ -8,7 +8,7 @@
 .hero-text-coll {
   display: block;
   position: relative;
-  color: black;
+  color: white;
 
   h2 {
     font-weight: 700;
@@ -33,6 +33,7 @@
   margin: auto;
   flex-flow: row wrap;
   text-align: left;
+  padding-bottom: 40px;
 }
 
 .card {
