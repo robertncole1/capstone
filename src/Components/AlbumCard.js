@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import React, { useState } from 'react';
 import {
-  Card, CardTitle, CardBody, CardSubtitle, CardText, Button
+  Card, CardTitle, CardBody, CardSubtitle, CardText, Button, CardImg
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import ModalExample from './Modal';
@@ -37,15 +37,13 @@ const AlbumCard = ({
   return (
     <>
     { type === 'artist' && <Card>
+              { cover_image === 'https://img.discogs.com/6c5b98990fbff2daf939300d206a3d6a6bd159f0/images/spacer.gif'
+                ? <CardImg className="img-container" src="https://www.eduprizeschools.net/wp-content/uploads/2016/06/No_Image_Available.jpg" alt={title}></CardImg>
+                : <CardImg className="img-container" src={cover_image} alt={title}></CardImg>
+              }
             <CardBody>
               <CardTitle tag="h5">{title}</CardTitle>
               <CardSubtitle tag="h6" className="mb-2 text-muted">Type: {type}</CardSubtitle>
-            </CardBody>
-              { cover_image === 'https://img.discogs.com/6c5b98990fbff2daf939300d206a3d6a6bd159f0/images/spacer.gif'
-                ? <img width="100%" className="img-container" src="https://www.eduprizeschools.net/wp-content/uploads/2016/06/No_Image_Available.jpg" alt={title}/>
-                : <img width="100%" className="img-container" src={cover_image} alt={title}/>
-              }
-            <CardBody>
             <CardText>Artist ID: {id}</CardText>
             { user
               ? <Button onClick={() => handleProjectsButton('edit') }>Add Artist to Collection</Button>
@@ -66,15 +64,13 @@ const AlbumCard = ({
         </Card>
     }
     { type === 'release' && <Card>
+    <CardImg className="img-container" src={cover_image} alt={title}></CardImg>
         <CardBody>
           <CardTitle tag="h5">{title}</CardTitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Type: {type}</CardSubtitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Country: {country}</CardSubtitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Year: {year}</CardSubtitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Format: {format.join(', ')}</CardSubtitle>
-        </CardBody>
-        <img width="100%" className="img-container" src={cover_image} alt={title}/>
-        <CardBody>
           <CardText>Barcodes: {barcode.slice(0, 2).join(', ')}</CardText>
           <CardText>Release ID: {id}</CardText>
           { user
@@ -101,15 +97,13 @@ const AlbumCard = ({
       </Card>
     }
     { type === 'label' && <Card>
+          { cover_image === 'https://img.discogs.com/6c5b98990fbff2daf939300d206a3d6a6bd159f0/images/spacer.gif'
+            ? <CardImg className="img-container" src="https://www.eduprizeschools.net/wp-content/uploads/2016/06/No_Image_Available.jpg" alt={title}></CardImg>
+            : <CardImg className="img-container" src={cover_image} alt={title}></CardImg>
+          }
         <CardBody>
           <CardTitle tag="h5">{title}</CardTitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Type: {type}</CardSubtitle>
-        </CardBody>
-        { cover_image === 'https://img.discogs.com/7766e2c9bdc17cfd8f84b9a39b60bb037dc0022e/images/spacer.gif'
-          ? <img width="100%" className="img-container" src="https://www.eduprizeschools.net/wp-content/uploads/2016/06/No_Image_Available.jpg" alt={title}/>
-          : <img width="100%" className="img-container" src={cover_image} alt={title}/>
-        }
-        <CardBody>
         <CardText>Release ID: {id}</CardText>
           { user
             ? <Button onClick={() => handleProjectsButton('edit')}>Add Label to Collection</Button>
@@ -133,14 +127,12 @@ const AlbumCard = ({
       </Card>
     }
     { type === 'master' && <Card>
+      <CardImg className="img-container" src={cover_image} alt={title}></CardImg>
         <CardBody>
           <CardTitle tag="h5">{title}</CardTitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Type: {type}</CardSubtitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Country: {country}</CardSubtitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Year: {year}</CardSubtitle>
-        </CardBody>
-        <img width="100%" className="img-container" src={cover_image} alt={title}/>
-        <CardBody>
           <CardText>Master ID: {id}</CardText>
           { user
             ? <Button onClick={() => handleProjectsButton('edit')}>Add Master to Collection</Button>

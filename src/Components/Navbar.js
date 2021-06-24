@@ -30,9 +30,9 @@ const NavBar = ({ user }) => {
   );
   return (
     <div>
-      <Navbar light expand="md">
+      <Navbar expand="md">
         <NavbarBrand href="/">
-        <img className="navbar-logo" src="https://firebasestorage.googleapis.com/v0/b/nss-capstone-28099.appspot.com/o/capstone-logo.png?alt=media&token=3598ae47-2f2d-4968-b2fb-3896c3a37b92"/>
+        <img className="navbar-logo" src="https://firebasestorage.googleapis.com/v0/b/nss-capstone-28099.appspot.com/o/logo-capstone-white.png?alt=media&token=76d3d139-a219-4152-8533-db56548c04f3"/>
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>

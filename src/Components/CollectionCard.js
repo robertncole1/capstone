@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import {
   Card, CardText, CardSubtitle, CardLink,
-  CardTitle, CardBody
+  CardTitle, CardBody, CardImg
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import ModalExample from './Modal';
@@ -66,13 +66,10 @@ const CollectionCard = ({
   return (
     <>
     { type === 'artist' && <Card>
+      <CardImg alt={title} src={cover_image} top></CardImg>
             <CardBody>
               <CardTitle tag="h5">{title}</CardTitle>
               <CardSubtitle tag="h6" className="mb-2 text-muted">Type: {type}</CardSubtitle>
-            </CardBody>
-            <img width="100%" className="img-container" src={cover_image} alt={title}/>
-            <CardBody>
-            <CardText>Artist ID: {id}</CardText>
             <CardText>Notes: {notes}</CardText>
             <CardLink className="delete-link" onClick={() => handleProjectsButton('edit')}>Edit</CardLink>
             <CardLink className="delete-link" onClick={() => handleProjectsButton('delete-artist')}>Delete</CardLink>
@@ -93,17 +90,14 @@ const CollectionCard = ({
         </Card>
     }
     { type === 'release' && <Card>
+    <CardImg alt={title} src={cover_image} top></CardImg>
         <CardBody>
           <CardTitle tag="h5">{title}</CardTitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Type: {type}</CardSubtitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Country: {country}</CardSubtitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Year: {year}</CardSubtitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Format: {format}</CardSubtitle>
-        </CardBody>
-        <img width="100%" className="img-container" src={cover_image} alt={title}/>
-        <CardBody>
           <CardText>Barcodes: {barcode}</CardText>
-          <CardText>Release ID: {id}</CardText>
           <CardText>Notes: {notes}</CardText>
           <CardLink className="delete-link" onClick={() => handleProjectsButton('edit')}>Edit</CardLink>
           <CardLink className="delete-link" onClick={() => handleProjectsButton('view')}>View</CardLink>
@@ -130,13 +124,10 @@ const CollectionCard = ({
       </Card>
     }
     { type === 'label' && <Card>
+      <CardImg alt={title} src={cover_image} top></CardImg>
         <CardBody>
           <CardTitle tag="h5">{title}</CardTitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Type: {type}</CardSubtitle>
-        </CardBody>
-        <img width="100%" className="img-container" src={cover_image} alt={title}/>
-        <CardBody>
-        <CardText>Release ID: {id}</CardText>
         <CardText>Notes: {notes}</CardText>
         <CardLink className="delete-link" onClick={() => handleProjectsButton('edit')}>Edit</CardLink>
         <CardLink className="delete-link" onClick={() => handleProjectsButton('delete-label')}>Delete</CardLink>
@@ -159,15 +150,10 @@ const CollectionCard = ({
       </Card>
     }
     { type === 'master' && <Card>
+    <CardImg alt={title} src={cover_image} top></CardImg>
         <CardBody>
           <CardTitle tag="h5">{title}</CardTitle>
           <CardSubtitle tag="h6" className="mb-2 text-muted">Type: {type}</CardSubtitle>
-          <CardSubtitle tag="h6" className="mb-2 text-muted">Country: {country}</CardSubtitle>
-          <CardSubtitle tag="h6" className="mb-2 text-muted">Year: {year}</CardSubtitle>
-        </CardBody>
-        <img width="100%" className="img-container" src={cover_image} alt={title}/>
-        <CardBody>
-          <CardText>Master ID: {id}</CardText>
           <CardText>Notes: {notes}</CardText>
           <CardLink className="delete-link" onClick={() => handleProjectsButton('edit')}>Edit</CardLink>
         <CardLink className="delete-link" onClick={() => handleProjectsButton('delete-master')}>Delete</CardLink>
